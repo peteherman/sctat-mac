@@ -1,22 +1,83 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "productName": "SCTAT",
+  "name": "SCTAT",
+  "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
+    "start": "electron-forge start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/electron.js",
+    "preelectron-pack": "react-scripts build"
   },
   "dependencies": {
+    "@react-native-picker/picker": "^1.9.11",
+    "autosize": "^4.0.2",
+    "chart.js": "^2.9.4",
+    "electron-squirrel-startup": "^1.0.0",
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-minimal-pie-chart": "^8.1.0",
+    "react-modal": "^3.12.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-gesture-handler": "^1.10.2",
+    "react-native-pie": "^1.1.2",
+    "react-native-pie-chart": "^1.0.13",
+    "react-native-screens": "^2.18.0",
+    "react-native-web": "~0.13.12",
+    "react-navigation": "^4.4.4",
+    "react-navigation-stack": "^2.10.3",
+    "react-scripts": "^4.0.3",
+    "react-select": "^4.1.0",
+    "react-textarea-autosize": "^8.3.1"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@expo/electron-adapter": "0.0.47",
+    "@expo/webpack-config": "^0.12.60",
+    "concurrently": "^6.0.0",
+    "cross-env": "^7.0.3",
+    "electron": "^6.1.12",
+    "electron-builder": "^22.9.1",
+    "wait-on": "^5.2.1"
   },
-  "private": true
+  "private": true,
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": ""
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
 }
